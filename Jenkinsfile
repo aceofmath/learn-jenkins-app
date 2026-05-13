@@ -19,7 +19,7 @@ pipeline {
                     ls -al
                     node --version
                     npm --version
-                    npm ci
+                    npm ci --force
                     npm run build
                     ls -al
                 '''
