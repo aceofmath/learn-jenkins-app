@@ -58,6 +58,17 @@ pipeline {
                 '''
             }
         }
+
+        stage('Prod E2E') {
+            environment {
+                CI_ENVIRONMENT_URL = 'https://fabulous-bavarois-68b4de.netlify.app'
+            }
+            steps {
+                sh '''
+                    npx playwright test --reporter=html
+                '''
+            }
+        }
     }
 
     post {
